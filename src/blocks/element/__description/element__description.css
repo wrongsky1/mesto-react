@@ -1,0 +1,17 @@
+.element__description {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  font-weight: 900;
+  font-size: 24px;
+  color: #000000;
+  margin: 0;
+  align-self: start;
+  justify-self: start;
+  margin-top: 25px;
+  margin-left: 21px;
+  padding-bottom: 31px;
+  max-width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

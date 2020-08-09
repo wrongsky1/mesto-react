@@ -1,0 +1,29 @@
+@import url(./__avatar/profile__avatar.css);
+@import url(./__edit-pen/profile__edit-pen.css);
+@import url(./__info-name/profile__info-name.css);
+@import url(./__info-job/profile__info-job.css);
+@import url(./__add-button/profile__add-button.css);
+@import url(./__edit-button/profile__edit-button.css);
+
+.profile {
+  max-width: 882px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: minmax(min-content, max-content) minmax(min-content, max-content) minmax(min-content, 582px) minmax(min-content, max-content);
+  grid-template-rows: repeat(2, minmax(min-content, max-content));
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .profile {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .profile {
+    margin-top: 32px;
+    grid-template-columns: repeat(2, minmax(min-content, max-content));
+    grid-template-rows: repeat(4, minmax(min-content, max-content));
+  }
+}

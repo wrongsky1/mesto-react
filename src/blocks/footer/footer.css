@@ -1,0 +1,22 @@
+@import url(./__copyright/footer__copyright.css);
+
+.footer {
+  display: flex;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 60px;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .footer {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .footer {
+    margin: auto auto 36px;
+    max-width: 282px;
+  }
+}

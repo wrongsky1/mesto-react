@@ -1,0 +1,19 @@
+.body {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  max-width: 1200px;
+  min-width: 300px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;   
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  color: black;
+  background: #000000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}

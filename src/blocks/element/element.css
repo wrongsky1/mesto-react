@@ -1,0 +1,20 @@
+@import url(./__picture/element__picture.css);
+@import url(./__description/element__description.css);
+@import url(./__like-button/element__like-button.css);
+@import url(./__like-container/element__like-container.css);
+@import url(./__like-button/_active/element__like-button_active.css);
+@import url(./__like-counter/element__like-counter.css);
+@import url(./__close-button/element__close-button.css);
+
+.element {
+  margin: 0;
+  max-width: 282px;
+  display: grid;
+  grid-template-columns: minmax(min-content, max-content) minmax(min-content, max-content);
+  grid-template-rows: minmax(min-content, max-content) minmax(min-content, max-content);
+  grid-gap: 0;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
