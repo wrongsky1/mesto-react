@@ -97,10 +97,10 @@ return (
         title='Редактировать профиль'
         children={
           <>
-            <input pattern="^[A-Za-zА-Яа-яЁё\s\-]+$" autocomplete="none" className="popup__input popup__input-name" type="text" placeholder="Жак-ив Кусто" id="profile-name" name="name" minlength="2" maxlength="40" required />
+            <input pattern="^[A-Za-zА-Яа-яЁё\s\-]+$" autoComplete="none" className="popup__input popup__input-name" type="text" placeholder="Жак-ив Кусто" id="profile-name" name="name" minLength="2" maxLength="40" required />
             <span id="profile-name-error" className="popup__error_visible"/>
 
-            <input className="popup__input popup__input-job" type="text" placeholder="Исследователь океана" id="profile-job" name="job" minlength="2" maxlength="200" required/>
+            <input className="popup__input popup__input-job" type="text" placeholder="Исследователь океана" id="profile-job" name="job" minLength="2" maxLength="200" required/>
             <span id="profile-job-error" className="popup__error_visible"/>
           </>
         }
@@ -113,7 +113,7 @@ return (
         title='Новое место'
         children={
           <>
-            <input id="add-place-title" className="popup__input popup__input-title" type="text" placeholder="Название" name="title" minlength="1" maxlength="30" required/>
+            <input id="add-place-title" className="popup__input popup__input-title" type="text" placeholder="Название" name="title" minLength="1" maxLength="30" required/>
             <span id="add-place-title-error" className="popup__error_visible"/>
               
             <input id="add-place-link" className="popup__input popup__input-link" type="url" placeholder="Ссылка на картинку" name="link" required/>
