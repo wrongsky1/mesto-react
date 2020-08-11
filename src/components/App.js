@@ -46,10 +46,8 @@ function closeAllPopups() {
   setIsPopupAddPlaceOpen(false);
   setIsPopupAvatarEditOpen(false);
   setIsPopupCardDeleteOpen(false);
-  setSelectedCard({
-    isOpen: false,
-    name: '',
-    link: ''
+  setSelectedCard((selectedCard) => {
+    return {...selectedCard, isOpen: false}
   })
 }
 
@@ -102,7 +100,7 @@ return (
             autoComplete="none"
             className="popup__input popup__input-name"
             type="text"
-            placeholder="Жак-ив Кусто"
+            placeholder="Введите имя"
             id="profile-name"
             name="name"
             minLength="2"
@@ -113,7 +111,7 @@ return (
             <input
             className="popup__input popup__input-job"
             type="text"
-            placeholder="Исследователь океана"
+            placeholder="Какова твоя профессия?"
             id="profile-job"
             name="job"
             minLength="2"
