@@ -1,10 +1,10 @@
 import React from 'react';
-import api from '../utils/Api.js';
+import api from '../utils/api.js';
 import Card from './Card.js';
 
 function Main(props) {
-  const[userName, setUserName] = React.useState('Жак-Ив Кусто');
-  const[userDescription, setUserDescription] = React.useState('Исследователь океана');
+  const[userName, setUserName] = React.useState('');
+  const[userDescription, setUserDescription] = React.useState('');
   const[userAvatar, setUserAvatar] = React.useState('');
   const[cards, setCards] = React.useState([]);
 

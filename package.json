@@ -1,6 +1,8 @@
 {
   "name": "mesto-react",
   "version": "0.1.0",
+  "homepage": "./",
+  "description": "sprint-10 mesto-react",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -14,7 +16,22 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wrongsky1/mesto-react.git"
+  },
+  "keywords": [
+    "react",
+    "mesto"
+  ],
+  "author": "Misha Razlivakhin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wrongsky1/mesto-react/issues"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
   }
 }

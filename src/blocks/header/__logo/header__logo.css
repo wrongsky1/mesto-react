@@ -2,6 +2,10 @@
   width: 142px;
   height: 33px;
   padding-bottom: 41px;
+  background-image: url(../../../images/header-logo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 @media screen and (max-width: 1000px) {

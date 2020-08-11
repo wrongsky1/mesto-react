@@ -14,7 +14,6 @@ class Api {
     }
   
     _checkResponseError(err){
-      console.log('Error');
       return Promise.reject(err.message);
     }
 
