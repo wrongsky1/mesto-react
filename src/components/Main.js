@@ -1,39 +1,49 @@
 import React from 'react';
-import api from '../utils/api.js';
 import Card from './Card.js';
+import CurrentUserContext from '../contexts/CurrentUserContext';
 
 function Main(props) {
-  const[userName, setUserName] = React.useState('');
-  const[userDescription, setUserDescription] = React.useState('');
-  const[userAvatar, setUserAvatar] = React.useState('');
-  const[cards, setCards] = React.useState([]);
-
-  React.useEffect(() => {
-    api.getUserInfo()
-      .then((data) => {
-        setUserName(data.name);
-        setUserDescription(data.about);
-        setUserAvatar(data.avatar);
-      })
-    api.getInitialCards()
-      .then((items) => {
-      setCards(items);   
-      })
-  }, []);
+  const currentUser = React.useContext(CurrentUserContext);
 
   return(
     <>
       <section className="profile">
-        <img className="profile__avatar" src={userAvatar} alt="Аватарка"/>
-        <div className="profile__edit-pen" onClick={props.onEditAvatar}/>
-        <h1 className="profile__info-name">{userName}</h1>
-        <button className="profile__edit-button" type="button" onClick={props.onEditProfile}/>
-        <p className="profile__info-job">{userDescription}</p>
-        <button className="profile__add-button" type="button" onClick={props.onAddPlace}/>
+        <img 
+          className="profile__avatar" 
+          src={currentUser.avatar} 
+          alt={`Аватарка ${currentUser.name}`}
+        />
+        <button 
+          className="profile__edit-pen" 
+          type="button" 
+          onClick={props.onEditAvatar} 
+          title="Сменить аватар"
+        />
+        <h1 className="profile__info-name">{currentUser.name}</h1>
+        <button 
+          className="profile__edit-button" 
+          type="button" 
+          onClick={props.onEditProfile} 
+          title="Редактировать профиль"
+        />
+        <p className="profile__info-job">{currentUser.about}</p>
+        <button 
+          className="profile__add-button" 
+          type="button" 
+          onClick={props.onAddPlace} 
+          title="Добавить место"
+        />
       </section>
 
       <section className="elements">
-        {cards.map((card) => <Card key={card._id} card={card} onCardDelete={props.onCardDelete} onCardClick={props.onCardClick}/>)}
+        {cards.map((card) => 
+          <Card 
+            key={card._id} 
+            card={card} 
+            onCardLike={props.onCardLike} 
+            onCardDelete={props.onCardDelete} 
+            onCardClick={props.onCardClick}
+          />)}
       </section>
     </>
   );
