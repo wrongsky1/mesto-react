@@ -28,16 +28,13 @@ class Api {
       .catch(this._checkResponseError)
     }
   
-    setUserInfo(userInfo) {
+    setUserInfo({ name, about }) {
       return fetch(
         `${this.baseUrl}/users/me`,
         {
           method: 'PATCH',
           headers: this.headers,
-          body: JSON.stringify({
-            name: userInfo.name,
-            about: userInfo.job 
-          })
+          body: JSON.stringify({ name, about })
         }
       )
       .then(this._checkResponse)
@@ -50,9 +47,7 @@ class Api {
         {
           method: 'PATCH',
           headers: this.headers,
-          body: JSON.stringify({
-            avatar: avatar.link
-          })
+          body: JSON.stringify({ avatar })
         }
       )
       .then(this._checkResponse)
@@ -70,16 +65,13 @@ class Api {
       .catch(this._checkResponseError)
     }
   
-    setCard(card) {
+    setCard({ name, link }) {
       return fetch(
         `${this.baseUrl}/cards`,
         {
           method: 'POST',
           headers: this.headers,
-          body: JSON.stringify({
-            name: card.title,
-            link: card.link
-          })
+          body: JSON.stringify({ name, link })
         }
       )
       .then(this._checkResponse)

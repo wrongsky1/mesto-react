@@ -49,7 +49,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
             <button 
               className="popup__save-button" 
               type="submit" 
-              disabled
+              
             >
             Сохранить
             </button>

@@ -26,9 +26,9 @@ function handleError (error) {
 
 React.useEffect(() => {
   Promise.all([api.getUserInfo(), api.getInitialCards()])
-    .then(([user, cardsFromServer]) => {
+    .then(([user, initialCards]) => {
       setCurrentUser(user)
-      setCards(cardsFromServer)
+      setCards(initialCards)
     })
     .catch(handleError)
   }, []);
@@ -45,7 +45,7 @@ function handleEditAvatarClick() {
   setIsPopupAvatarEditOpen(true);
 }
 
-function handleCardClick(name, link) {
+function handleCardClick(card) {
   setSelectedCard({ card, isOpen: true });
 }
 
@@ -111,8 +111,8 @@ function handleCardDelete (card) {
     .catch(handleError)
 }
 
-function handleAddPlaceSubmit (card) { //проверить данные
-  api.setCard(card)
+function handleAddPlaceSubmit ({ name, link }) { 
+  api.setCard({ name, link })
     .then((newCard) => {
       setCards([newCard, ...cards]);
       setIsPopupAddPlaceOpen(false);
@@ -147,50 +147,50 @@ return (
     <div className="body">
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
-      <Header />
+        <Header />
 
-      <Main
-        onEditProfile={handleEditProfileClick} 
-        onAddPlace={handleAddPlaceClick}
-        onEditAvatar={handleEditAvatarClick}
-        onCardClick={handleCardClick}
-        onSetCards={handleSetCards}
-        onCardLike={handleCardLike}
-        onCardDelete={handleRequestDelete}
-        cards={cards}
-      />
-      <Footer />
+        <Main
+          onEditProfile={handleEditProfileClick} 
+          onAddPlace={handleAddPlaceClick}
+          onEditAvatar={handleEditAvatarClick}
+          onCardClick={handleCardClick}
+          onSetCards={handleSetCards}
+          onCardLike={handleCardLike}
+          onCardDelete={handleRequestDelete}
+          cards={cards}
+        />
+        <Footer />
 
-      <EditAvatarPopup
-        isOpen={isPopupAvatarEditOpen}
-        onClose={closeAllPopups}
-        onUpdateAvatar={handleUpdateAvatar}
-      />
+        <EditAvatarPopup
+          isOpen={isPopupAvatarEditOpen}
+          onClose={closeAllPopups}
+          onUpdateAvatar={handleUpdateAvatar}
+        />
 
-      <EditProfilePopup
-        isOpen={isPopupProfileOpen}
-        onClose={closeAllPopups}
-        onUpdateUser={handleUpdateUser}
-      />
+        <EditProfilePopup
+          isOpen={isPopupProfileOpen}
+          onClose={closeAllPopups}
+          onUpdateUser={handleUpdateUser}
+        />
 
-      <AddPlacePopup
-        isOpen={isPopupAddPlaceOpen}
-        onClose={closeAllPopups}
-        onAddPlace={handleAddPlaceSubmit}
-      />
+        <AddPlacePopup
+          isOpen={isPopupAddPlaceOpen}
+          onClose={closeAllPopups}
+          onAddPlace={handleAddPlaceSubmit}
+        />
 
-      <ImagePopup
-        card={selectedCard.card}
-        isOpen={selectedCard.isOpen}
-        onClose={closeAllPopups}
-      />
+        <ImagePopup
+          card={selectedCard.card}
+          isOpen={selectedCard.isOpen}
+          onClose={closeAllPopups}
+        />
 
-      <DeletePopup
-        card={isPopupCardDeleteOpen.card}
-        isOpen={isPopupCardDeleteOpen.isOpen}
-        onClose={closeAllPopups}
-        onDelete={handleCardDelete}
-      />
+        <DeletePopup
+          card={isPopupCardDeleteOpen.card}
+          isOpen={isPopupCardDeleteOpen.isOpen}
+          onClose={closeAllPopups}
+          onDelete={handleCardDelete}
+        />
       </CurrentUserContext.Provider>
     </div>
   </div>  
